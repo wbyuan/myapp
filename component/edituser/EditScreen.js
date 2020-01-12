@@ -86,14 +86,14 @@ export default class EditScreen extends React.Component {
 				type: 'multipart/form-data',
 				name: 'image.png'
 			}
-			//formData.append('assessToken', assessToken)
+			formData.append('assessToken', assessToken)
 			formData.append('file', file) // 有可能是file 也有可能是images 看后台的配置
 			fetch(url, {
 				method: 'POST',
-				headers: {
-					'Content-Type': 'multipart/form-data;charset=utf-8',
-					//"x-access-token": assessToken,
-				},
+				// headers: {
+				// 	'Content-Type': 'application/x-www-form-urlencoded',
+				// 	//"x-access-token": assessToken,
+				// },
 				body: formData
 			})
 			.then((response) => response.json())

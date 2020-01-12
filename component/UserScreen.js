@@ -7,6 +7,7 @@ import {
   Text,
   StatusBar,
   Button,
+  Image,
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -50,7 +51,7 @@ export class UserScreen extends React.Component {
     fetch(uri)
       .then((response) => response.json())
       .then((responseJson) =>{
-        
+        console.log(responseJson.user)
         if(responseJson.success){
           this.setState({
             data:responseJson.user,
@@ -118,6 +119,7 @@ export class UserScreen extends React.Component {
           <View style={styles.UserWrap}>
               <View style={styles.InfoArea}>
                 <View style={styles.img}>
+                  <Image source={{uri:this.state.data.avatarUrl}} style={{width: 67, height: 67,borderRadius:70}}/>
                 </View>
                 <View style={styles.info}>
                   <Text style={styles.username}>{this.state.data.nickName}</Text>
@@ -217,6 +219,8 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     marginRight: 10,
     borderRadius: 80,
+    justifyContent:"center",
+    alignItems:"center"
   },
   info: {
     flex:1,

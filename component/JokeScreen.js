@@ -15,7 +15,6 @@ export class JokeScreen extends React.Component {
         <View style={styles.container}>
           <Text>笑话</Text>
           <Button  title="登录/注册" color="#f194ff"  onPress={()=>{navigation.navigate("varify",{number:"13678994788"})}}/>
-          
         </View>
       );
     }
